@@ -1,0 +1,23 @@
+{
+  "name": "scrape-a-rama",
+  "version": "1.0.0",
+  "description": "News Scraping App ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravenusric/Scrape-A-Rama.git"
+  },
+  "keywords": [
+    "scraper"
+  ],
+  "author": "Ravenusric",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ravenusric/Scrape-A-Rama/issues"
+  },
+  "homepage": "https://github.com/ravenusric/Scrape-A-Rama#readme"
+}
