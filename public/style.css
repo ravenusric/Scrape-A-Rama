@@ -1,5 +1,5 @@
 body { 
-  background-image: url("dailybugle.jpg");
+  background-image: url("moviecollage.jpg");
   background-size: 100% 100%;
 }
 img {
@@ -37,16 +37,21 @@ img {
 ul {
         padding-top: 5px;
         padding-bottom: 5px;
-        background-color: #FFF;
+        background-color: rgba(57, 248, 9, 0.63);
       }
 #notes {
         float: right;
         width: 30%;
+        background-color: rgba(137, 43, 226, 0.466);
+        
+      }
+      h3{
+        color: rgb(251, 255, 0);
       }
 textarea, input {
         display: block;
         width: 100%;
-        background-color: #FCF5C7;
+        background-color: rgba(247, 108, 229, 0.479);
       }
 input {
         height: 36px;
