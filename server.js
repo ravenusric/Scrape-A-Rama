@@ -50,6 +50,9 @@ db.once("open", function() {
 
 // Routes
 // ======
+// home page 
+app.get("/", function(req, res) 
+{
 
 // A GET request to scrape the screenrant website
 app.get("/scrape", function(req, res) {
@@ -87,6 +90,7 @@ app.get("/scrape", function(req, res) {
   });
   // Tell the browser that we finished scraping the text
   res.send("Scrape Complete");
+});
 });
 
 // This will get the articles we scraped from the mongoDB
