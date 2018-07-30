@@ -18,6 +18,15 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1/heroku_hhxq80sg";
+// // Database configuration with mongoose
+// mongoose.connect("mongodb://heroku_hhxq80sg:6711ls7b4tf0j1cjd084tsofte@ds259351.mlab.com:59351/heroku_hhxq80sg");
+var db = mongoose.connection;
+// Connect to the Mongo DB
+  mongoose.connect(MONGODB_URI);
+
+
+
 // Use morgan and body parser with our app
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
@@ -27,9 +36,6 @@ app.use(bodyParser.urlencoded({
 // Make public a static dir
 app.use(express.static("public"));
 
-// Database configuration with mongoose
-mongoose.connect("mongodb://heroku_hhxq80sg:6711ls7b4tf0j1cjd084tsofte@ds259351.mlab.com:59351/heroku_hhxq80sg");
-var db = mongoose.connection;
 
 // Show any mongoose errors
 db.on("error", function(error) {
@@ -45,13 +51,13 @@ db.once("open", function() {
 // Routes
 // ======
 
-// A GET request to scrape the echojs website
+// A GET request to scrape the screenrant website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
   request("https://www.screenrant.com/", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
-    // Now, we grab every h2 within an article tag, and do the following:
+    // Now, we grab every h3 within an article tag, and do the following:
     $("h3.bc-title").each(function(i, element) {
 
       // Save an empty result object
