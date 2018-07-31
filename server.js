@@ -52,10 +52,8 @@ db.once("open", function() {
 // ======
 // home page 
 // app.get("/", function(req, res) 
-app.get("/", (req, res) => {
-	db.Article.find({}).then(dbArticles => {
-		res.render("index", {articles: dbArticles});
-  });
+app.get('/', function(req, res) {
+	res.send(index.html);
 });
 
 // A GET request to scrape the screenrant website
