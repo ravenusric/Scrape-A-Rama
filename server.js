@@ -52,7 +52,7 @@ db.once("open", function() {
 // ======
 // home page 
 // app.get("/", function(req, res) 
-app.get('/', function(req, res) {
+app.get('../', function(req, res) {
 	res.send(html);
 });
 
