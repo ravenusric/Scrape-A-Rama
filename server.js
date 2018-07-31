@@ -53,7 +53,7 @@ db.once("open", function() {
 // home page 
 // app.get("/", function(req, res) 
 app.get('/', function(req, res) {
-	res.send(index.html);
+	res.send(html);
 });
 
 // A GET request to scrape the screenrant website
