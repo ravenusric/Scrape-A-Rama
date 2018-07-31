@@ -52,7 +52,19 @@ db.once("open", function() {
 // ======
 // home page 
 // app.get("/", function(req, res) 
-// {
+app.get("/", function(req, res) {
+  // Grab every doc in the Articles array
+  Article.find({"saved": false}, function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Or send the doc to the browser as a json object
+    else {
+      res.json(doc);
+    }
+  });
+});
 
 // A GET request to scrape the screenrant website
 app.get("/scrape", function(req, res) {
@@ -91,7 +103,7 @@ app.get("/scrape", function(req, res) {
   // Tell the browser that we finished scraping the text
   res.send("Scrape Complete");
 });
-// });
+
 
 // This will get the articles we scraped from the mongoDB
 app.get("/articles", function(req, res) {
