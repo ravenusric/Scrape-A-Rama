@@ -52,17 +52,9 @@ db.once("open", function() {
 // ======
 // home page 
 // app.get("/", function(req, res) 
-app.get("/", function(req, res) {
-  // Grab every doc in the Articles array
-  Article.find({"saved": false}, function(error, doc) {
-    // Log any errors
-    if (error) {
-      console.log(error);
-    }
-    // Or send the doc to the browser as a json object
-    else {
-      res.json(doc);
-    }
+app.get("/", (req, res) => {
+	db.Article.find({}).then(dbArticles => {
+		res.render("index", {articles: dbArticles});
   });
 });
 
